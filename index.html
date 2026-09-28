@@ -22,7 +22,20 @@ body{
     overflow:hidden;
 }
 
-/* CLOSED INVITATION */
+/* BUTTON */
+
+.openBtn{
+    background:#6a1b9a;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+/* FIRST PAGE */
 
 #closedBox{
     background:white;
@@ -37,18 +50,8 @@ body{
     color:#6a1b9a;
 }
 
-.openBtn{
-    background:#6a1b9a;
-    color:white;
-    border:none;
-    padding:15px 35px;
-    border-radius:30px;
-    font-size:18px;
-    cursor:pointer;
-    margin-top:20px;
-}
 
-/* OPEN CARD */
+/* INVITATION PAGE */
 
 #openCard{
     display:none;
@@ -65,6 +68,7 @@ body{
 }
 
 @keyframes popIn{
+
     0%{
         transform:scale(0) rotate(-10deg);
         opacity:0;
@@ -81,7 +85,7 @@ body{
     }
 }
 
-#openCard .dept{
+.dept{
     color:#6a1b9a;
     margin:0;
     font-size:11px;
@@ -89,13 +93,13 @@ body{
     font-weight:600;
 }
 
-#openCard .fresh{
+.fresh{
     color:#8e24aa;
     margin:3px 0;
     font-size:11px;
 }
 
-#openCard .title{
+.title{
     color:#4a148c;
     font-size:36px;
     font-weight:700;
@@ -103,13 +107,13 @@ body{
     font-family:'Playfair Display',serif;
 }
 
-#openCard .cursive{
+.cursive{
     font-family:'Great Vibes',cursive;
     font-size:22px;
     color:#6a1b9a;
 }
 
-#openCard .details{
+.details{
     background:#f3e5f5;
     border-radius:12px;
     padding:10px 14px;
@@ -118,53 +122,63 @@ body{
     border:1px dashed #ce93d8;
 }
 
-#openCard .details p{
+.details p{
     margin:5px 0;
     font-size:11.5px;
 }
 
-#openCard .footer{
+.footer{
     margin-top:14px;
     font-family:'Great Vibes',cursive;
     font-size:20px;
     color:#4a148c;
 }
 
-/* SCHEDULE */
 
-#scheduleBox{
+/* SCHEDULE PAGE */
+
+#schedulePage{
     display:none;
-    background:#f3e5f5;
-    border:1px dashed #ab47bc;
-    border-radius:12px;
-    padding:10px;
-    margin-top:12px;
-    text-align:left;
+    background:white;
+    border:2px solid #6a1b9a;
+    border-radius:18px;
+    max-width:330px;
+    width:88%;
+    padding:25px 18px;
+    box-shadow:0 12px 30px rgba(106,27,154,0.25);
+    font-family:'Poppins',sans-serif;
+    animation:popIn 0.7s ease forwards;
 }
 
-#scheduleBox h3{
-    text-align:center;
+#schedulePage h1{
     color:#6a1b9a;
-    font-size:14px;
-    margin:3px 0 8px;
+    font-family:'Playfair Display',serif;
+    font-size:25px;
+    margin:5px 0;
 }
 
-/* EACH SCHEDULE ITEM */
+.scheduleSubtitle{
+    font-family:'Great Vibes',cursive;
+    color:#8e24aa;
+    font-size:21px;
+    margin-bottom:18px;
+}
+
+
+/* SCHEDULE ITEMS */
 
 .scheduleItem{
-    background:white;
-    padding:7px 10px;
-    margin:6px 0;
-    border-radius:8px;
-    font-size:11.5px;
+    background:#f3e5f5;
+    border:1px solid #ce93d8;
+    padding:10px;
+    margin:9px 0;
+    border-radius:10px;
+    font-size:12px;
     color:#4a148c;
 
-    /* Initially hidden */
-    display:none;
     opacity:0;
+    display:none;
 }
-
-/* ONE BY ONE ANIMATION */
 
 .scheduleItem.showItem{
     display:block;
@@ -174,7 +188,7 @@ body{
 @keyframes slideIn{
 
     from{
-        transform:translateX(-30px);
+        transform:translateX(-40px);
         opacity:0;
     }
 
@@ -185,19 +199,42 @@ body{
 
 }
 
+
 /* BACK BUTTON */
 
 .backBtn{
-    display:block;
-    margin:10px auto 2px;
-    background:#8e24aa;
+    background:#6a1b9a;
     color:white;
     border:none;
-    padding:7px 20px;
-    border-radius:20px;
-    font-size:11px;
+    padding:9px 25px;
+    border-radius:25px;
+    font-size:12px;
     cursor:pointer;
+    margin-top:15px;
 }
+
+
+/* SPARKLE */
+
+.sparkle{
+    position:absolute;
+    animation:twinkle 1.5s infinite;
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:0.2;
+        transform:scale(0.5);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
+
+}
+
 
 /* CONFETTI */
 
@@ -218,6 +255,7 @@ body{
     }
 
 }
+
 
 /* BALLOONS */
 
@@ -241,27 +279,6 @@ body{
 
 }
 
-/* SPARKLES */
-
-.sparkle{
-    position:absolute;
-    animation:twinkle 1.5s infinite;
-}
-
-@keyframes twinkle{
-
-    0%,100%{
-        opacity:0.2;
-        transform:scale(0.5);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.5);
-    }
-
-}
-
 </style>
 </head>
 
@@ -269,7 +286,9 @@ body{
 <body>
 
 
-<!-- CLOSED INVITATION -->
+<!-- ========================= -->
+<!-- PAGE 1 : CLOSED INVITE -->
+<!-- ========================= -->
 
 <div id="closedBox">
 
@@ -283,41 +302,31 @@ body{
 
     <p>Freshers Party</p>
 
-    <button type="button"
-            class="openBtn"
-            id="openBtn">
-
+    <button class="openBtn" id="openBtn">
         OPEN INVITATION ✨
-
     </button>
 
 </div>
 
 
 
-<!-- OPEN INVITATION -->
+<!-- ========================= -->
+<!-- PAGE 2 : INVITATION -->
+<!-- ========================= -->
 
 <div id="openCard">
 
     <span class="sparkle"
-          style="top:5px; left:10px;">
-        ✨
-    </span>
+          style="top:5px;left:10px;">✨</span>
 
     <span class="sparkle"
-          style="top:10px; right:15px;">
-        💜
-    </span>
+          style="top:10px;right:15px;">💜</span>
 
     <span class="sparkle"
-          style="bottom:20px; left:15px;">
-        🌸
-    </span>
+          style="bottom:20px;left:15px;">🌸</span>
 
     <span class="sparkle"
-          style="bottom:30px; right:10px;">
-        ✨
-    </span>
+          style="bottom:30px;right:10px;">✨</span>
 
 
     <h1 class="dept">
@@ -340,8 +349,6 @@ body{
         You are cordially invited to join us!
     </p>
 
-
-    <!-- DETAILS -->
 
     <div class="details">
 
@@ -377,89 +384,91 @@ body{
     </div>
 
 
-    <!-- SHOW SCHEDULE BUTTON -->
+    <!-- SCHEDULE BUTTON -->
 
-    <button type="button"
-            class="openBtn"
+    <button class="openBtn"
             id="scheduleBtn"
-            style="padding:8px 20px;
-                   font-size:12px;
-                   margin-top:10px;">
+            style="padding:9px 22px;
+                   font-size:12px;">
 
         📋 SHOW SCHEDULE
 
     </button>
 
 
+    <!-- CLOSE BUTTON -->
 
-    <!-- SCHEDULE BOX -->
+    <br>
 
-    <div id="scheduleBox">
+    <button class="openBtn"
+            id="closeBtn"
+            style="padding:8px 22px;
+                   font-size:12px;
+                   margin-top:10px;">
 
-        <h3>
-            ✨ EVENT SCHEDULE ✨
-        </h3>
+        CLOSE
 
+    </button>
 
-        <div class="scheduleItem">
-
-            🎤 <b>1.</b> Formal Function
-
-        </div>
-
-
-        <div class="scheduleItem">
-
-            🎊 <b>2.</b> Banner Roll Out
-
-        </div>
+</div>
 
 
-        <div class="scheduleItem">
 
-            🍽️ <b>3.</b> Lunch
+<!-- ========================= -->
+<!-- PAGE 3 : SCHEDULE -->
+<!-- ========================= -->
 
-        </div>
+<div id="schedulePage">
 
+    <h1>
+        ✨ EVENT SCHEDULE ✨
+    </h1>
 
-        <div class="scheduleItem">
-
-            🎮 <b>4.</b> Games
-
-        </div>
-
-
-        <div class="scheduleItem">
-
-            💃 <b>5.</b> Cultural Events
-
-        </div>
+    <div class="scheduleSubtitle">
+        Let's Celebrate Together!
+    </div>
 
 
-        <!-- BACK BUTTON -->
+    <div class="scheduleItem">
 
-        <button type="button"
-                class="backBtn"
-                id="backBtn">
-
-            ← BACK
-
-        </button>
+        🎤 <b>1.</b> Formal Function
 
     </div>
 
 
+    <div class="scheduleItem">
 
-    <!-- CLOSE BUTTON -->
+        🎊 <b>2.</b> Banner Roll Out
 
-    <button type="button"
-            class="openBtn"
-            id="closeBtn"
-            style="padding:8px 20px;
-                   font-size:12px;
-                   margin-top:10px;">
+    </div>
 
-        Close
+
+    <div class="scheduleItem">
+
+        🍽️ <b>3.</b> Lunch
+
+    </div>
+
+
+    <div class="scheduleItem">
+
+        🎮 <b>4.</b> Games
+
+    </div>
+
+
+    <div class="scheduleItem">
+
+        💃 <b>5.</b> Cultural Events
+
+    </div>
+
+
+    <!-- ONLY BACK BUTTON -->
+
+    <button class="backBtn" id="backBtn">
+
+        ← BACK
 
     </button>
 
@@ -470,7 +479,9 @@ body{
 <script>
 
 
+/* ========================= */
 /* OPEN INVITATION */
+/* ========================= */
 
 document.getElementById("openBtn")
 .addEventListener("click", function(){
@@ -490,22 +501,27 @@ document.getElementById("openBtn")
 
 
 
-/* SHOW SCHEDULE */
+/* ========================= */
+/* SHOW SCHEDULE PAGE */
+/* ========================= */
 
 document.getElementById("scheduleBtn")
 .addEventListener("click", function(){
 
-    let schedule =
-        document.getElementById("scheduleBox");
+    document.getElementById("openCard")
+    .style.display = "none";
+
+    document.getElementById("schedulePage")
+    .style.display = "block";
+
+
+    /* Get all schedule items */
 
     let items =
         document.querySelectorAll(".scheduleItem");
 
 
-    schedule.style.display = "block";
-
-
-    /* Hide all items first */
+    /* Reset them */
 
     items.forEach(function(item){
 
@@ -514,9 +530,9 @@ document.getElementById("scheduleBtn")
     });
 
 
-    /* Show items one by one */
+    /* Show one by one */
 
-    items.forEach(function(item, index){
+    items.forEach(function(item,index){
 
         setTimeout(function(){
 
@@ -526,27 +542,22 @@ document.getElementById("scheduleBtn")
 
     });
 
-
-    /* Hide main card content buttons */
-
-    document.getElementById("scheduleBtn")
-        .style.display = "none";
-
 });
 
 
 
-/* BACK BUTTON */
+/* ========================= */
+/* BACK TO INVITATION */
+/* ========================= */
 
 document.getElementById("backBtn")
 .addEventListener("click", function(){
 
-    document.getElementById("scheduleBox")
-        .style.display = "none";
+    document.getElementById("schedulePage")
+    .style.display = "none";
 
-
-    document.getElementById("scheduleBtn")
-        .style.display = "inline-block";
+    document.getElementById("openCard")
+    .style.display = "block";
 
 
     /* Reset schedule */
@@ -562,16 +573,18 @@ document.getElementById("backBtn")
 
 
 
-/* CLOSE INVITATION */
+/* ========================= */
+/* CLOSE */
+/* ========================= */
 
 document.getElementById("closeBtn")
 .addEventListener("click", function(){
 
     document.getElementById("openCard")
-        .style.display = "none";
+    .style.display = "none";
 
     document.getElementById("closedBox")
-        .style.display = "block";
+    .style.display = "block";
 
     document.body.style.background =
         "#f7f3ff";
@@ -580,9 +593,12 @@ document.getElementById("closeBtn")
 
 
 
+/* ========================= */
 /* PARTY EFFECTS */
+/* ========================= */
 
 function startParty(){
+
 
     /* CONFETTI */
 
@@ -596,7 +612,6 @@ function startParty(){
         c.style.left =
             Math.random()*100 + "%";
 
-
         c.style.backgroundColor =
             [
                 "#6a1b9a",
@@ -606,23 +621,18 @@ function startParty(){
                 "#ff4081"
             ][Math.floor(Math.random()*5)];
 
-
         c.style.animationDuration =
             (1 + Math.random()*2) + "s";
 
-
         c.style.transform =
             `rotate(${Math.random()*360}deg)`;
-
 
         c.style.borderRadius =
             Math.random()>0.5
             ? "50%"
             : "0";
 
-
         document.body.appendChild(c);
-
 
         setTimeout(
             ()=>c.remove(),
@@ -630,7 +640,6 @@ function startParty(){
         );
 
     }
-
 
 
     /* BALLOONS */
@@ -642,7 +651,6 @@ function startParty(){
 
         b.className = "balloon";
 
-
         b.innerText =
             [
                 "🎈",
@@ -652,21 +660,16 @@ function startParty(){
                 "🌸"
             ][Math.floor(Math.random()*5)];
 
-
         b.style.left =
             (10 + Math.random()*80) + "%";
-
 
         b.style.animationDelay =
             (i*0.3) + "s";
 
-
         b.style.animationDuration =
             (3 + Math.random()*2) + "s";
 
-
         document.body.appendChild(b);
-
 
         setTimeout(
             ()=>b.remove(),
@@ -680,4 +683,4 @@ function startParty(){
 </script>
 
 </body>
-  </html>
+</html>
