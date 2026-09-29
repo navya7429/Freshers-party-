@@ -35,6 +35,18 @@ body{
     margin-top:20px;
 }
 
+.backBtn{
+    background:#6a1b9a;
+    color:white;
+    border:none;
+    padding:9px 25px;
+    border-radius:25px;
+    font-size:12px;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+
 /* FIRST PAGE */
 
 #closedBox{
@@ -200,9 +212,37 @@ body{
 }
 
 
-/* BACK BUTTON */
+/* POSTER PAGE */
 
-.backBtn{
+#posterPage{
+    display:none;
+    background:white;
+    border:2px solid #6a1b9a;
+    border-radius:18px;
+    max-width:350px;
+    width:88%;
+    padding:18px;
+    box-shadow:0 12px 30px rgba(106,27,154,0.25);
+    font-family:'Poppins',sans-serif;
+    animation:popIn 0.7s ease forwards;
+}
+
+#posterPage h1{
+    color:#6a1b9a;
+    font-family:'Playfair Display',serif;
+    font-size:24px;
+    margin:5px 0 15px;
+}
+
+.posterImage{
+    width:100%;
+    max-height:65vh;
+    object-fit:contain;
+    border-radius:12px;
+    border:1px solid #ce93d8;
+}
+
+.posterBackBtn{
     background:#6a1b9a;
     color:white;
     border:none;
@@ -384,7 +424,7 @@ body{
     </div>
 
 
-    <!-- SCHEDULE BUTTON -->
+    <!-- SHOW SCHEDULE -->
 
     <button class="openBtn"
             id="scheduleBtn"
@@ -396,7 +436,7 @@ body{
     </button>
 
 
-    <!-- CLOSE BUTTON -->
+    <!-- CLOSE -->
 
     <br>
 
@@ -464,9 +504,49 @@ body{
     </div>
 
 
-    <!-- ONLY BACK BUTTON -->
+    <!-- VIEW POSTER BUTTON -->
+
+    <button class="backBtn" id="posterBtn">
+
+        🖼️ VIEW POSTER
+
+    </button>
+
+
+    <!-- BACK TO INVITATION -->
 
     <button class="backBtn" id="backBtn">
+
+        ← BACK
+
+    </button>
+
+</div>
+
+
+
+<!-- ========================= -->
+<!-- PAGE 4 : POSTER -->
+<!-- ========================= -->
+
+<div id="posterPage">
+
+    <h1>
+        ✨ EVENT POSTER ✨
+    </h1>
+
+    <!--
+    Put your poster image in the same folder
+    as this HTML file and name it poster.jpg
+    -->
+
+    <img
+        src="poster.jpg"
+        class="posterImage"
+        alt="Freshers Party Poster"
+    >
+
+    <button class="posterBackBtn" id="posterBackBtn">
 
         ← BACK
 
@@ -502,7 +582,7 @@ document.getElementById("openBtn")
 
 
 /* ========================= */
-/* SHOW SCHEDULE PAGE */
+/* SHOW SCHEDULE */
 /* ========================= */
 
 document.getElementById("scheduleBtn")
@@ -515,13 +595,11 @@ document.getElementById("scheduleBtn")
     .style.display = "block";
 
 
-    /* Get all schedule items */
-
     let items =
         document.querySelectorAll(".scheduleItem");
 
 
-    /* Reset them */
+    /* Reset schedule */
 
     items.forEach(function(item){
 
@@ -541,6 +619,40 @@ document.getElementById("scheduleBtn")
         }, index * 900);
 
     });
+
+});
+
+
+
+/* ========================= */
+/* VIEW POSTER */
+/* ========================= */
+
+document.getElementById("posterBtn")
+.addEventListener("click", function(){
+
+    document.getElementById("schedulePage")
+    .style.display = "none";
+
+    document.getElementById("posterPage")
+    .style.display = "block";
+
+});
+
+
+
+/* ========================= */
+/* BACK FROM POSTER */
+/* ========================= */
+
+document.getElementById("posterBackBtn")
+.addEventListener("click", function(){
+
+    document.getElementById("posterPage")
+    .style.display = "none";
+
+    document.getElementById("schedulePage")
+    .style.display = "block";
 
 });
 
