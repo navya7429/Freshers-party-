@@ -6,78 +6,615 @@
 
 <title>Freshers Party Invite</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+/* ========================= */
+/* BODY */
+/* ========================= */
+
 body{
-    background:#f7f3ff;
-    font-family:Arial;
+    background:linear-gradient(
+        -45deg,
+        #f7f3ff,
+        #eadcff,
+        #f9efff,
+        #e3d2ff
+    );
+
+    background-size:400% 400%;
+
+    animation:bgMove 10s ease infinite;
+
+    font-family:'Poppins',sans-serif;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     min-height:100vh;
+
     margin:0;
+
     text-align:center;
+
     overflow:hidden;
+
+    position:relative;
 }
 
+
+/* ANIMATED BACKGROUND */
+
+@keyframes bgMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+
+/* ========================= */
+/* FLOATING BACKGROUND CIRCLES */
+/* ========================= */
+
+.bgCircle{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    opacity:0.35;
+
+    z-index:-1;
+
+    animation:floatCircle 6s ease-in-out infinite;
+}
+
+.circle1{
+
+    width:80px;
+    height:80px;
+
+    background:#ce93d8;
+
+    top:10%;
+    left:5%;
+}
+
+.circle2{
+
+    width:55px;
+    height:55px;
+
+    background:#ab47bc;
+
+    bottom:15%;
+    right:7%;
+
+    animation-delay:1s;
+}
+
+.circle3{
+
+    width:35px;
+    height:35px;
+
+    background:#ba68c8;
+
+    top:25%;
+    right:8%;
+
+    animation-delay:2s;
+}
+
+.circle4{
+
+    width:45px;
+    height:45px;
+
+    background:#e1bee7;
+
+    bottom:25%;
+    left:8%;
+
+    animation-delay:3s;
+}
+
+
+@keyframes floatCircle{
+
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+
+    50%{
+        transform:translateY(-25px) scale(1.15);
+    }
+
+}
+
+
+/* ========================= */
 /* BUTTON */
+/* ========================= */
 
 .openBtn{
-    background:#6a1b9a;
+
+    background:linear-gradient(
+        135deg,
+        #6a1b9a,
+        #9c27b0,
+        #6a1b9a
+    );
+
+    background-size:200% 200%;
+
     color:white;
+
     border:none;
+
     padding:15px 35px;
-    border-radius:30px;
+
+    border-radius:35px;
+
     font-size:18px;
+
     cursor:pointer;
+
     margin-top:20px;
+
+    font-family:'Poppins',sans-serif;
+
+    font-weight:600;
+
+    box-shadow:
+        0 8px 20px rgba(106,27,154,0.35);
+
+    animation:
+        buttonGlow 2s ease-in-out infinite,
+        buttonGradient 4s ease infinite;
+
+    transition:0.3s;
 }
 
+
+.openBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+        0 12px 30px rgba(106,27,154,0.55);
+}
+
+
+@keyframes buttonGlow{
+
+    0%,100%{
+        box-shadow:
+            0 8px 20px rgba(106,27,154,0.35);
+    }
+
+    50%{
+        box-shadow:
+            0 8px 35px rgba(156,39,176,0.7);
+    }
+
+}
+
+
+@keyframes buttonGradient{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+
+/* ========================= */
+/* BACK BUTTON */
+/* ========================= */
+
 .backBtn{
+
     background:#6a1b9a;
+
     color:white;
+
     border:none;
+
     padding:9px 25px;
+
     border-radius:25px;
+
     font-size:12px;
+
     cursor:pointer;
+
     margin-top:15px;
 }
 
 
-/* FIRST PAGE */
+/* ========================= */
+/* PAGE 1 */
+/* ========================= */
 
 #closedBox{
-    background:white;
+
+    background:
+        rgba(255,255,255,0.94);
+
     border:3px solid #6a1b9a;
-    border-radius:20px;
-    padding:40px;
+
+    border-radius:30px;
+
+    padding:45px 30px;
+
     max-width:400px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+    width:82%;
+
+    box-shadow:
+        0 15px 45px rgba(75,0,100,0.25);
+
+    position:relative;
+
+    overflow:hidden;
+
+    animation:
+        cardEntrance 1.2s ease forwards;
 }
 
-#closedBox h2{
+
+/* Card entrance */
+
+@keyframes cardEntrance{
+
+    0%{
+        opacity:0;
+        transform:
+            translateY(60px)
+            scale(0.85);
+    }
+
+    100%{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* Decorative top glow */
+
+#closedBox::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:#e1bee7;
+
+    opacity:0.25;
+
+    top:-90px;
+    left:-80px;
+
+    animation:rotateGlow 6s linear infinite;
+}
+
+
+#closedBox::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    background:#ce93d8;
+
+    opacity:0.18;
+
+    bottom:-80px;
+    right:-70px;
+
+    animation:rotateGlow 7s linear infinite reverse;
+}
+
+
+@keyframes rotateGlow{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* ========================= */
+/* ENVELOPE */
+/* ========================= */
+
+.envelopeIcon{
+
+    font-size:72px;
+
+    display:block;
+
+    margin-bottom:15px;
+
+    animation:
+        envelopeFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes envelopeFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50%{
+        transform:
+            translateY(-15px)
+            rotate(4deg);
+    }
+
+}
+
+
+/* ========================= */
+/* DEPARTMENT */
+/* ========================= */
+
+.department{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:32px;
+
     color:#6a1b9a;
+
+    margin:5px 0 10px;
+
+    letter-spacing:1px;
+
+    animation:
+        departmentAppear 1.5s ease,
+        departmentGlow 2s ease-in-out infinite alternate;
 }
 
 
+@keyframes departmentAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+@keyframes departmentGlow{
+
+    from{
+        text-shadow:
+            0 0 3px #ce93d8;
+    }
+
+    to{
+        text-shadow:
+            0 0 10px #ab47bc,
+            0 0 20px #ce93d8;
+    }
+
+}
+
+
+/* ========================= */
+/* INVITATION HEADING */
+/* ========================= */
+
+.specialInvite{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:24px;
+
+    color:#222;
+
+    margin:12px 0;
+
+    animation:
+        headingAppear 1.8s ease;
+
+}
+
+
+@keyframes headingAppear{
+
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+
+/* ========================= */
+/* FRESHERS PARTY TEXT */
+/* ========================= */
+
+.partyText{
+
+    font-family:'Great Vibes',cursive;
+
+    color:#8e24aa;
+
+    font-size:26px;
+
+    margin:5px 0 10px;
+
+    animation:
+        fadeSlide 2s ease;
+}
+
+
+@keyframes fadeSlide{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* ========================= */
+/* SPARKLES PAGE 1 */
+/* ========================= */
+
+.pageSparkle{
+
+    position:absolute;
+
+    font-size:22px;
+
+    animation:
+        sparkleMove 2.5s ease-in-out infinite;
+
+    z-index:2;
+}
+
+
+.spark1{
+    top:30px;
+    left:30px;
+}
+
+.spark2{
+    top:45px;
+    right:30px;
+
+    animation-delay:0.7s;
+}
+
+.spark3{
+    bottom:45px;
+    left:30px;
+
+    animation-delay:1.2s;
+}
+
+.spark4{
+    bottom:35px;
+    right:30px;
+
+    animation-delay:1.7s;
+}
+
+
+@keyframes sparkleMove{
+
+    0%,100%{
+        transform:
+            scale(0.7)
+            rotate(0deg);
+
+        opacity:0.4;
+    }
+
+    50%{
+        transform:
+            scale(1.3)
+            rotate(20deg);
+
+        opacity:1;
+    }
+
+}
+
+
+/* ========================= */
 /* INVITATION PAGE */
+/* ========================= */
 
 #openCard{
     display:none;
+
     background:white;
+
     border:2px solid #6a1b9a;
+
     border-radius:18px;
+
     max-width:330px;
+
     width:88%;
+
     padding:18px 16px;
-    box-shadow:0 12px 30px rgba(106,27,154,0.25);
+
+    box-shadow:
+        0 12px 30px rgba(106,27,154,0.25);
+
     font-family:'Poppins',sans-serif;
+
     animation:popIn 0.8s ease forwards;
+
     position:relative;
 }
+
 
 @keyframes popIn{
 
@@ -95,7 +632,9 @@ body{
         transform:scale(1) rotate(0);
         opacity:1;
     }
+
 }
+
 
 .dept{
     color:#6a1b9a;
@@ -105,11 +644,13 @@ body{
     font-weight:600;
 }
 
+
 .fresh{
     color:#8e24aa;
     margin:3px 0;
     font-size:11px;
 }
+
 
 .title{
     color:#4a148c;
@@ -119,11 +660,13 @@ body{
     font-family:'Playfair Display',serif;
 }
 
+
 .cursive{
     font-family:'Great Vibes',cursive;
     font-size:22px;
     color:#6a1b9a;
 }
+
 
 .details{
     background:#f3e5f5;
@@ -134,10 +677,12 @@ body{
     border:1px dashed #ce93d8;
 }
 
+
 .details p{
     margin:5px 0;
     font-size:11.5px;
 }
+
 
 .footer{
     margin-top:14px;
@@ -147,7 +692,9 @@ body{
 }
 
 
+/* ========================= */
 /* SCHEDULE PAGE */
+/* ========================= */
 
 #schedulePage{
     display:none;
@@ -162,12 +709,14 @@ body{
     animation:popIn 0.7s ease forwards;
 }
 
+
 #schedulePage h1{
     color:#6a1b9a;
     font-family:'Playfair Display',serif;
     font-size:25px;
     margin:5px 0;
 }
+
 
 .scheduleSubtitle{
     font-family:'Great Vibes',cursive;
@@ -177,8 +726,6 @@ body{
 }
 
 
-/* SCHEDULE ITEMS */
-
 .scheduleItem{
     background:#f3e5f5;
     border:1px solid #ce93d8;
@@ -187,15 +734,16 @@ body{
     border-radius:10px;
     font-size:12px;
     color:#4a148c;
-
     opacity:0;
     display:none;
 }
+
 
 .scheduleItem.showItem{
     display:block;
     animation:slideIn 0.6s ease forwards;
 }
+
 
 @keyframes slideIn{
 
@@ -212,7 +760,9 @@ body{
 }
 
 
+/* ========================= */
 /* POSTER PAGE */
+/* ========================= */
 
 #posterPage{
     display:none;
@@ -227,12 +777,14 @@ body{
     animation:popIn 0.7s ease forwards;
 }
 
+
 #posterPage h1{
     color:#6a1b9a;
     font-family:'Playfair Display',serif;
     font-size:24px;
     margin:5px 0 15px;
 }
+
 
 .posterImage{
     width:100%;
@@ -241,6 +793,7 @@ body{
     border-radius:12px;
     border:1px solid #ce93d8;
 }
+
 
 .posterBackBtn{
     background:#6a1b9a;
@@ -254,12 +807,15 @@ body{
 }
 
 
+/* ========================= */
 /* SPARKLE */
+/* ========================= */
 
 .sparkle{
     position:absolute;
     animation:twinkle 1.5s infinite;
 }
+
 
 @keyframes twinkle{
 
@@ -276,7 +832,9 @@ body{
 }
 
 
+/* ========================= */
 /* CONFETTI */
+/* ========================= */
 
 .confetti{
     position:fixed;
@@ -287,17 +845,23 @@ body{
     z-index:9999;
 }
 
+
 @keyframes fall{
 
     to{
-        transform:translateY(100vh) rotate(720deg);
+        transform:
+            translateY(100vh)
+            rotate(720deg);
+
         opacity:0;
     }
 
 }
 
 
+/* ========================= */
 /* BALLOONS */
+/* ========================= */
 
 .balloon{
     position:fixed;
@@ -307,14 +871,19 @@ body{
     z-index:999;
 }
 
+
 @keyframes rise{
 
     0%{
-        transform:translateY(0) rotate(0);
+        transform:
+            translateY(0)
+            rotate(0);
     }
 
     100%{
-        transform:translateY(-110vh) rotate(20deg);
+        transform:
+            translateY(-110vh)
+            rotate(20deg);
     }
 
 }
@@ -326,26 +895,68 @@ body{
 <body>
 
 
+<!-- BACKGROUND DECORATIONS -->
+
+<div class="bgCircle circle1"></div>
+<div class="bgCircle circle2"></div>
+<div class="bgCircle circle3"></div>
+<div class="bgCircle circle4"></div>
+
+
+
 <!-- ========================= -->
 <!-- PAGE 1 : CLOSED INVITE -->
 <!-- ========================= -->
 
 <div id="closedBox">
 
-    <div style="font-size:60px;">💌</div>
 
-    <h5>DEPARTMENT OF SCIENCE</h5>
-    
+    <!-- FLOATING SPARKLES -->
 
-    <h2>BCA & BSC</h2>
+    <span class="pageSparkle spark1">✨</span>
 
-    <h3>You have a special invitation!</h3>
+    <span class="pageSparkle spark2">💜</span>
 
-    <p>Freshers Party</p>
+    <span class="pageSparkle spark3">🌸</span>
+
+    <span class="pageSparkle spark4">💫</span>
+
+
+    <!-- ENVELOPE -->
+
+    <div class="envelopeIcon">
+        💌
+    </div>
+
+
+    <!-- DEPARTMENT -->
+
+    <div class="department">
+        Department of science 
+    </div>
+    <h4>BCA & BSC</h4>
+
+
+    <!-- INVITATION TEXT -->
+
+    <div class="specialInvite">
+        You have a special invitation!
+    </div>
+
+
+    <!-- PARTY -->
+
+    <div class="partyText">
+        Freshers Party ✨
+    </div>
+
+
+    <!-- BUTTON -->
 
     <button class="openBtn" id="openBtn">
         OPEN INVITATION ✨
     </button>
+
 
 </div>
 
@@ -374,17 +985,21 @@ body{
         🌸 BCA & BSC 🌸
     </h1>
 
+
     <h2 class="fresh">
         FRESHERS PARTY
     </h2>
+
 
     <h1 class="title">
         2026
     </h1>
 
+
     <div class="cursive">
         A New Beginning
     </div>
+
 
     <p style="font-size:11.5px;">
         You are cordially invited to join us!
@@ -437,9 +1052,10 @@ body{
     </button>
 
 
-    <!-- CLOSE -->
-
     <br>
+
+
+    <!-- CLOSE -->
 
     <button class="openBtn"
             id="closeBtn"
@@ -471,55 +1087,37 @@ body{
 
 
     <div class="scheduleItem">
-
         🎤 <b>1.</b> Formal Function
-
     </div>
 
 
     <div class="scheduleItem">
-
         🎊 <b>2.</b> Banner Roll Out
-
     </div>
 
 
     <div class="scheduleItem">
-
         🍽️ <b>3.</b> Lunch
-
     </div>
 
 
     <div class="scheduleItem">
-
         🎮 <b>4.</b> Games
-
     </div>
 
 
     <div class="scheduleItem">
-
         💃 <b>5.</b> Cultural Events
-
     </div>
 
-
-    <!-- VIEW POSTER BUTTON -->
 
     <button class="backBtn" id="posterBtn">
-
         🖼️ VIEW POSTER
-
     </button>
 
 
-    <!-- BACK TO INVITATION -->
-
     <button class="backBtn" id="backBtn">
-
         ← BACK
-
     </button>
 
 </div>
@@ -536,21 +1134,16 @@ body{
         ✨ EVENT POSTER ✨
     </h1>
 
-    <!--
-    Put your poster image in the same folder
-    as this HTML file and name it poster.jpg
-    -->
 
     <img
-        src="poster.png"
+        src="poster.jpg"
         class="posterImage"
         alt="Freshers Party Poster"
     >
 
+
     <button class="posterBackBtn" id="posterBackBtn">
-
         ← BACK
-
     </button>
 
 </div>
@@ -570,11 +1163,14 @@ document.getElementById("openBtn")
     document.getElementById("closedBox")
     .style.display = "none";
 
+
     document.getElementById("openCard")
     .style.display = "block";
 
+
     document.body.style.background =
         "#e1bee7";
+
 
     startParty();
 
@@ -592,6 +1188,7 @@ document.getElementById("scheduleBtn")
     document.getElementById("openCard")
     .style.display = "none";
 
+
     document.getElementById("schedulePage")
     .style.display = "block";
 
@@ -600,16 +1197,12 @@ document.getElementById("scheduleBtn")
         document.querySelectorAll(".scheduleItem");
 
 
-    /* Reset schedule */
-
     items.forEach(function(item){
 
         item.classList.remove("showItem");
 
     });
 
-
-    /* Show one by one */
 
     items.forEach(function(item,index){
 
@@ -635,6 +1228,7 @@ document.getElementById("posterBtn")
     document.getElementById("schedulePage")
     .style.display = "none";
 
+
     document.getElementById("posterPage")
     .style.display = "block";
 
@@ -651,6 +1245,7 @@ document.getElementById("posterBackBtn")
 
     document.getElementById("posterPage")
     .style.display = "none";
+
 
     document.getElementById("schedulePage")
     .style.display = "block";
@@ -669,11 +1264,10 @@ document.getElementById("backBtn")
     document.getElementById("schedulePage")
     .style.display = "none";
 
+
     document.getElementById("openCard")
     .style.display = "block";
 
-
-    /* Reset schedule */
 
     document.querySelectorAll(".scheduleItem")
     .forEach(function(item){
@@ -696,8 +1290,10 @@ document.getElementById("closeBtn")
     document.getElementById("openCard")
     .style.display = "none";
 
+
     document.getElementById("closedBox")
     .style.display = "block";
+
 
     document.body.style.background =
         "#f7f3ff";
@@ -720,10 +1316,14 @@ function startParty(){
         let c =
             document.createElement("div");
 
-        c.className = "confetti";
+
+        c.className =
+            "confetti";
+
 
         c.style.left =
             Math.random()*100 + "%";
+
 
         c.style.backgroundColor =
             [
@@ -734,18 +1334,23 @@ function startParty(){
                 "#ff4081"
             ][Math.floor(Math.random()*5)];
 
+
         c.style.animationDuration =
             (1 + Math.random()*2) + "s";
 
+
         c.style.transform =
             `rotate(${Math.random()*360}deg)`;
+
 
         c.style.borderRadius =
             Math.random()>0.5
             ? "50%"
             : "0";
 
+
         document.body.appendChild(c);
+
 
         setTimeout(
             ()=>c.remove(),
@@ -762,7 +1367,10 @@ function startParty(){
         let b =
             document.createElement("div");
 
-        b.className = "balloon";
+
+        b.className =
+            "balloon";
+
 
         b.innerText =
             [
@@ -773,16 +1381,21 @@ function startParty(){
                 "🌸"
             ][Math.floor(Math.random()*5)];
 
+
         b.style.left =
             (10 + Math.random()*80) + "%";
+
 
         b.style.animationDelay =
             (i*0.3) + "s";
 
+
         b.style.animationDuration =
             (3 + Math.random()*2) + "s";
 
+
         document.body.appendChild(b);
+
 
         setTimeout(
             ()=>b.remove(),
